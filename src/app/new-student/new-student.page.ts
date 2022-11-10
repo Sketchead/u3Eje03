@@ -18,6 +18,13 @@ export class NewStudentPage implements OnInit {
     this.myForm = this.fb.group(
       {
         controlNumber:["",Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(8),Validators.pattern('^[0-9]+$')])],
+        name: ["",Validators.compose([Validators.required])],
+        curp: ["",Validators.compose([Validators.required])],
+        age: ["",Validators.compose([Validators.required,Validators.min(17)])],
+        nip: ["",Validators.compose([Validators.required,Validators.minLength(2),Validators.maxLength(3)])],
+        email: ["",Validators.compose([Validators.required,Validators.pattern('')])],
+        career: ["",Validators.required],
+        photo: ["",Validators.compose([Validators.required,Validators.pattern('')])]
       }
     );  
     this.validationMessages = {
@@ -26,7 +33,14 @@ export class NewStudentPage implements OnInit {
         {type: 'minlength', message: "Longitud mínima 8 carácteres"},
         {type: 'maxlength', message: "Longitud máxima 8 carácteres"},
         {type: 'pattern', message: "Podri solo puede contener números"}
+      ],
+      name: [
+        {type: 'required', message: "Campo requerido"}
+      ],
+      curp: [
+        {type: 'required', message: "Campo requerido"}
       ]
+      
     }
 
     
