@@ -61,6 +61,7 @@ export class HomePage {
   }
 
   logout(){
+    this.studentService.adminLoggedOut()
     this.router.navigate([''], {
     });
   }

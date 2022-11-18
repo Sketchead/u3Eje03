@@ -23,11 +23,12 @@ export class LoginPage implements OnInit {
 
   login(){
     if(this.myForm.value.controlnumber=='admin' && this.myForm.value.nip=='123'){
+      this.sService.adminLogged()
       this.loggedIn()
     }else{
       let a = this.sService.getStudentByControlNumber(this.myForm.value.controlnumber)
       if(a){
-        if(a.nip == this.myForm.value.nip)this.loggedIn()
+        if(a.nip == this.myForm.value.nip) this.loggedInStudent()
         else{
           this.loginAlert()
         }
@@ -38,6 +39,12 @@ export class LoginPage implements OnInit {
 
   loggedIn(){
     this.router.navigate(['/home'], {
+    });
+  }
+
+  loggedInStudent(){
+    this.router.navigate(['/view-student'], {
+      queryParams: { cn: this.myForm.value.controlnumber },
     });
   }
 

@@ -14,9 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewStudentPage implements OnInit {
 
   public student: Student;
-
-  constructor(private studentService: StudentService, private activatedRoute: ActivatedRoute) {
-    
+  isAdmin: boolean = false;
+  constructor(private studentService: StudentService, private activatedRoute: ActivatedRoute,private router: Router) {
+    this.isAdmin = studentService.isAdmin();
   }
 
   ngOnInit() {
@@ -27,4 +27,10 @@ export class ViewStudentPage implements OnInit {
     // console.log(cn);
   }
 
+  public editStudent(cn: string): void {
+    //console.log(this.studentService.getStudentByControlNumber(cn));
+    this.router.navigate(['/edit-student'], {
+      queryParams: { cn: cn },
+    });
+  }
 }

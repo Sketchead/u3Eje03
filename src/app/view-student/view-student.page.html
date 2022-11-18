@@ -31,6 +31,11 @@
                 Edad: {{student.age}} años
             </h2>
         </ion-card-content>
+        <ng-container *ngIf="isAdmin">
+            <ion-button (click)="editStudent(student.controlnumber)">
+                <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+        </ng-container>
     </ion-card>
 </ion-content>
 

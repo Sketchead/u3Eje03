@@ -7,36 +7,36 @@ import { Student } from "../models/student";
 export class StudentService {
 
   private students: Student[];
-
+  private admin: boolean = false;
   constructor() {
     this.students = [
       {
-        controlnumber: "02400391",
-        age: 38,
-        career: "ISC",
-        curp: "AOVI840917HNTRZS09",
-        email: "iarjona@ittepic.edu.mx",
-        name: "Israel Arjona Vizcaíno",
-        nip: 717,
-        photo: 'https://picsum.photos/600/?random=1'
-      }, 
-      {
-        controlnumber: "12400391",
-        age: 28,
-        career: "IM",
-        curp: "AOCI840917HNTRZS09",
-        email: "iarjona2@ittepic.edu.mx",
-        name: "Israel Arjona Castañeda",
-        nip: 818,
+        controlnumber: "18401183",
+        age: 22,
+        career: "isc",
+        curp: "RIMA000102HNTCCTA4",
+        email: "atraricoma@ittepic.edu.mx",
+        name: "Atxel Rafael Rico Macías",
+        nip: 766,
         photo: 'https://picsum.photos/600/?random=2'
       },
       {
-        controlnumber: "22400391",
-        age: 18,
-        career: "IC",
-        curp: "OOCI840917HNTRZS09",
-        email: "iarjona3@ittepic.edu.mx",
-        name: "Israel Arjona Méndez",
+        controlnumber: "18401135",
+        age: 22,
+        career: "isc",
+        curp: "HEGE000601HNTRRDA7",
+        email: "edanherreraga@ittepic.edu.mx",
+        name: "Eduardo Antonio Herrera García",
+        nip: 484,
+        photo: 'https://picsum.photos/600/?random=1'
+      }, 
+      {
+        controlnumber: "18401179",
+        age: 22,
+        career: "ic",
+        curp: "PETE000906HNTRLDA1",
+        email: "edgeperezto@ittepic.edu.mx",
+        name: "Edsson Gerardo Pérez Tolentino",
         nip: 919,
         photo: 'https://picsum.photos/600/?random=3'
       }
@@ -59,7 +59,26 @@ export class StudentService {
     return item;
   }
 
+  public editStudent(st: Student) {
+    this.students.find((student)=> {
+      if(student.controlnumber===st.controlnumber)
+        student=st 
+    });
+  }
+
   public newStudent(student: Student){
     this.students.push(student);
+  }
+
+  isAdmin(){
+    return this.admin;
+  }
+
+  adminLogged(){
+    this.admin=true;
+  }
+
+  adminLoggedOut(){
+    this.admin=false;
   }
 }
