@@ -55,4 +55,13 @@ export class HomePage {
     });
   }
 
+  newStudent(){
+    this.router.navigate(['/new-student'], {
+    });
+  }
+
+  logout(){
+    this.router.navigate([''], {
+    });
+  }
 }

@@ -36,4 +36,18 @@
             </ion-list>
         </ion-col>
     </ion-row>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button>
+            <ion-icon name="chevron-up-circle"></ion-icon>
+          </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button (click)="newStudent()">
+                <ion-icon name="person-add-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button (click)="logout()">
+                <ion-icon name="log-out-outline"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>
